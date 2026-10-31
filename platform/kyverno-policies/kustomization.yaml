@@ -1,5 +1,7 @@
 namespace: kyverno
 
 resources:
-- kyverno-policies/
+- pss-baseline/
+
+- exceptions/piraeus-exclude-disallow-privilege-escalation.yaml
 

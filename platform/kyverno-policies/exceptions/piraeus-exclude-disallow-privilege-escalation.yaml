@@ -1,0 +1,12 @@
+apiVersion: policies.kyverno.io/v1alpha1
+kind: PolicyException
+metadata:
+  name: exclude-disallow-privilege-escalation
+spec:
+  policyRefs:
+    - name: disallow-privilege-escalation
+      kind: ValidatingPolicy
+  matchConditions:
+    - name: skip-by-piraeus-namespace
+      expression: >-
+        object.metadata.namespace == 'piraeus-datastore'

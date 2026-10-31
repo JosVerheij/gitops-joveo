@@ -47,12 +47,12 @@ spec:
     # Kyverno cluster-wide policies
     - group: policies.kyverno.io
       kind: ValidatingPolicy
-    - group: policies.kyverno.io
-      kind: MutatingPolicy
-    - group: policies.kyverno.io
-      kind: GeneratingPolicy
-    - group: policies.kyverno.io
-      kind: DeletingPolicy
+    # - group: policies.kyverno.io
+    #   kind: MutatingPolicy
+    # - group: policies.kyverno.io
+    #   kind: GeneratingPolicy
+    # - group: policies.kyverno.io
+    #   kind: DeletingPolicy
     - group: policies.kyverno.io
       kind: ImageValidatingPolicy
 

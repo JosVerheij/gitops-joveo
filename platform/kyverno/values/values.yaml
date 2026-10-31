@@ -11,4 +11,4 @@ webhookLabels:
 features:
   policyExceptions:
     enabled: true
-    namespace: 'piraeus-datastore'
+    namespace: kyverno
