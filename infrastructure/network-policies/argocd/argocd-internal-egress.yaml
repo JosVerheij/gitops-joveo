@@ -7,7 +7,8 @@ metadata:
 spec:
   description: "Allow internal egress within argocd"
   endpointSelector:
-    matchLabels: {}
+    matchLabels:
+      - {}
   egress:
   - toEndpoints:
     - matchLabels:
