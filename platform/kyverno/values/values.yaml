@@ -7,3 +7,8 @@ networkPolicy:
 
 webhookLabels:
   app.kubernetes.io/managed-by: argocd
+
+features:
+  policyExceptions:
+    enabled: true
+    namespace: 'piraeus-datastore'
