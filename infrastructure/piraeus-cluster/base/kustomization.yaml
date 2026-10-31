@@ -1,2 +1,3 @@
 resources:
   - piraeus-linstor-cluster.yaml
+  - piraeus-storage-pool.yaml
