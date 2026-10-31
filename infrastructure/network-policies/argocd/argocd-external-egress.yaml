@@ -10,14 +10,7 @@ spec:
     matchLabels:
       io.cilium.k8s.policy.serviceaccount: argocd-repo-server
   egress:
-  - toEndpoints:
-      toEntities:
-        - world
-  - toPorts:
-    - ports:
-      - port: "443"
-        protocol: TCP
-    toFQDNs:
+  - toFQDNs:
     - matchName: "ghcr.io"
     - matchName: "github.com"
     - matchName: "github.io"
@@ -28,4 +21,8 @@ spec:
     - matchPattern: "*.github.io"
     - matchPattern: "*.quay.io"
     - matchPattern: "*.githubusercontent.com"
+    toPorts:
+    - ports:
+      - port: "443"
+        protocol: TCP
 
