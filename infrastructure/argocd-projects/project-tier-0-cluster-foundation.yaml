@@ -30,6 +30,12 @@ spec:
     - group: admissionregistration.k8s.io
       kind: ValidatingAdmissionPolicyBinding
 
+      # Kubernetes admission webhooks
+    - group: admissionregistration.k8s.io
+      kind: ValidatingWebhookConfiguration
+    - group: admissionregistration.k8s.io
+      kind: MutatingWebhookConfiguration
+
     # Cluster namespaces
     - group: ''
       kind: 'Namespace'
