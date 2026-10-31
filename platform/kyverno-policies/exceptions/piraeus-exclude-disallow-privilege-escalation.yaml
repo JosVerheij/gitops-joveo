@@ -9,4 +9,4 @@ spec:
   matchConditions:
     - name: skip-by-piraeus-namespace
       expression: >-
-        object.metadata.namespace == 'piraeus-datastore'
+        object.metadata.namespace == 'piraeus'
