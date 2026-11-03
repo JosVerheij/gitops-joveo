@@ -5,7 +5,7 @@ metadata:
 spec:
   secretName: jellyfin-server-internal-tls
   issuerRef:
-    name: letsencrypt-staging
+    name: cluster-issuer-letsencrypt
     kind: ClusterIssuer
   dnsNames:
     - jellyfin.svc.local.joveo.nl
