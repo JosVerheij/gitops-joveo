@@ -1,7 +1,7 @@
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
-  name: letsencrypt-staging
+  name: cluster-issuer-letsencrypt
 spec:
   acme:
     # The ACME server URL
@@ -10,7 +10,7 @@ spec:
     email: looks-defunct-4d@icloud.com
     # Name of a secret used to store the ACME account private key
     privateKeySecretRef:
-      name: letsencrypt-staging
+      name: letsencrypt-production
     solvers:
       - dns01:
           cloudflare:
