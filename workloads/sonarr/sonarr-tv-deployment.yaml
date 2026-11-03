@@ -1,0 +1,66 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: sonarr-tv
+spec:
+  # restartPolicy: OnFailure
+  securityContext:
+    runAsUser: 4702  # 1020
+    runAsGroup: 4702  # 3020
+    # fsGroup: 2020
+    # supplementalGroups: [4000]
+    runAsNonRoot: true
+    seccompProfile:
+      type: RuntimeDefault
+    readOnlyRootFilesystem: true
+  initContainers:
+    - name: prepare-config
+      image: docker.io/busybox:stable
+      command: ['sh', '-c', 'cp /tmp/config/config.xml /config/config.xml' ]
+      volumeMounts:
+        - mountPath: /config
+          name: sonarr-tv-config
+        - mountPath: /tmp/config
+          name: sonarr-tv-config-xml
+          readOnly: true
+  containers:
+    - name: sonarr
+      image: lscr.io/linuxserver/sonarr:latest
+      ports:
+        - containerPort: 8989
+          hostPort: 8989
+        - containerPort: 9898
+          hostPort: 9898
+      env:
+        - name: TZ
+          value: 'Europe/Amsterdam'
+      volumeMounts:
+        - mountPath: /config:U
+          name: sonarr-tv-config
+        - mountPath: /data/ssl/server.pfx:U
+          name: sonarr-tv-ssl-pfx
+          readOnly: true
+        - mountPath: /run
+          name: sonarr-tv-run
+        - mountPath: /data/media/main
+          name: media-main
+
+  volumes:
+    - name: sonarr-tv-config
+      emptyDir: {}
+    - name: sonarr-tv-run
+      emptyDir:
+        medium: "Memory"
+
+    - name: sonarr-tv-ssl-pfx
+      hostPath:
+        path: /home/podman-mediamanager/ssl/sonarr-tv/server.pfx
+        type: FileOrCreate
+    - name: sonarr-tv-config-xml
+      secret:
+        secretName: sonarr-tv-config-xml
+
+    - name: media-main
+      hostPath:
+        path: /srv/media
+        type: Directory
