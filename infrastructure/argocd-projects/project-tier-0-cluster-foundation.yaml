@@ -118,31 +118,9 @@ spec:
       name: '*.gateway.networking.k8s.io'
 
   namespaceResourceWhitelist:
-    # Namespaces managed by T0.
-    # Include all existing T0-owned namespaces.
+    # Namespaces.
     - group: ''
       kind: Namespace
-      name: argocd
-
-    - group: ''
-      kind: Namespace
-      name: kube-system
-
-    - group: ''
-      kind: Namespace
-      name: kyverno
-
-    - group: ''
-      kind: Namespace
-      name: cert-manager
-
-    - group: ''
-      kind: Namespace
-      name: rook-ceph
-
-    - group: ''
-      kind: Namespace
-      name: gateways
 
     # Kyverno namespaced policies
     - group: kyverno.io
