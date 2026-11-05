@@ -43,6 +43,7 @@ toolbox:
   labels: {}
   # -- Toolbox container security context
   containerSecurityContext:
+    allowPrivilegeEscalation: false  # TBD
     runAsNonRoot: true
     runAsUser: 2016
     runAsGroup: 2016
