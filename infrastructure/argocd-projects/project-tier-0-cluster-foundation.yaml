@@ -64,11 +64,6 @@ spec:
     - group: 'snapshot.storage.k8s.io'
       kind: '*'
 
-    # Only when using Rook ObjectBucket resources
-    # - group: apiextensions.k8s.io
-    #   kind: CustomResourceDefinition
-    #   name: '*.objectbucket.io'
-
     # cert-manager
     - group: cert-manager.io
       kind: ClusterIssuer
@@ -116,6 +111,11 @@ spec:
     - group: apiextensions.k8s.io
       kind: CustomResourceDefinition
       name: '*.gateway.networking.k8s.io'
+
+    # Only when using Rook ObjectBucket resources
+    # - group: apiextensions.k8s.io
+    #   kind: CustomResourceDefinition
+    #   name: '*.objectbucket.io'
 
   namespaceResourceWhitelist:
     - group: ''
