@@ -118,13 +118,5 @@ spec:
       name: '*.gateway.networking.k8s.io'
 
   namespaceResourceWhitelist:
-    # Namespaces.
     - group: ''
-      kind: Namespace
-
-    # Kyverno namespaced policies
-    - group: kyverno.io
-      kind: Policy
-
-    - group: kyverno.io
-      kind: PolicyException
+      kind: '*'

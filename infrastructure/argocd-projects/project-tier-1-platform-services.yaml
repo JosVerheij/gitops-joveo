@@ -41,77 +41,10 @@ spec:
       kind: CustomResourceDefinition
       name: '*.ceph.rook.io'
 
-  namespaceResourceWhitelist:
-    # Core resources
-    - group: ''
-      kind: ConfigMap
+  namespaceResourceBlacklist:
+    # Networking is exclusively managed by T0
+    - group: networking.k8s.io
+      kind: NetworkPolicy
 
-    - group: ''
-      kind: Secret
-
-    - group: ''
-      kind: Service
-
-    - group: ''
-      kind: ServiceAccount
-
-    # Workloads
-    - group: apps
-      kind: Deployment
-
-    - group: apps
-      kind: StatefulSet
-
-    - group: apps
-      kind: DaemonSet
-
-    # Helm hooks / installation jobs
-    - group: batch
-      kind: Job
-
-    # Controller coordination
-    - group: coordination.k8s.io
-      kind: Lease
-
-    # Availability
-    - group: policy
-      kind: PodDisruptionBudget
-
-    # cert-manager
-    - group: cert-manager.io
-      kind: Certificate
-
-    - group: cert-manager.io
-      kind: CertificateRequest
-
-    - group: cert-manager.io
-      kind: Issuer
-
-    - group: acme.cert-manager.io
-      kind: Order
-
-    - group: acme.cert-manager.io
-      kind: Challenge
-
-    # Rook-Ceph
-    - group: ceph.rook.io
-      kind: CephCluster
-
-    - group: ceph.rook.io
-      kind: CephBlockPool
-
-    - group: ceph.rook.io
-      kind: CephFilesystem
-
-    - group: ceph.rook.io
-      kind: CephObjectStore
-
-    - group: ceph.rook.io
-      kind: CephObjectStoreUser
-
-    - group: ceph.rook.io
-      kind: CephNFS
-
-    # Gateway API
-    - group: gateway.networking.k8s.io
-      kind: Gateway
+    - group: cilium.io
+      kind: CiliumNetworkPolicy
