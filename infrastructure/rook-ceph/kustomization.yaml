@@ -1,3 +1,4 @@
 resources:
 - rook-ceph-crds.yaml  # https://github.com/rook/rook/blob/release-1.21/deploy/examples/crds.yaml
-# - rook-ceph-common.yaml  # https://github.com/rook/rook/blob/release-1.21/deploy/examples/common.yaml
+- rook-ceph-common.yaml  # https://github.com/rook/rook/blob/release-1.21/deploy/examples/common.yaml
+- csi-operator.yaml

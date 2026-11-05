@@ -32,7 +32,7 @@ annotations: {}
 logLevel: INFO
 
 # -- If true, create & use RBAC resources
-rbacEnable: true
+rbacEnable: false
 
 rbacAggregate:
   # -- If true, create a ClusterRole aggregated to [user facing roles](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles) for objectbucketclaims
@@ -67,7 +67,7 @@ ceph-csi-operator:
         csiServiceAccountPrefix: ""
 csi:
   # -- When true, install the ceph-csi-operator subchart (see Chart.yaml `condition`).
-  installCsiOperator: true
+  installCsiOperator: false
 
   # CSI container images are managed by the ceph-csi-operator. Empty defaults
   # allow the operator to use its built-in images. Set the repository and tag
