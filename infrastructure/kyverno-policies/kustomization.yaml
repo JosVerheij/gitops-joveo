@@ -1,7 +1,9 @@
 namespace: kyverno
 
 resources:
-- pss-baseline/
+- restrict-sa-automount-sa-token.yaml
 
 - exceptions/piraeus-exclude-disallow-privilege-escalation.yaml
 
+- pss-baseline/
+- pss-restricted/
