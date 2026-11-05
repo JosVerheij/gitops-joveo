@@ -64,10 +64,24 @@ spec:
       kind: CustomResourceDefinition
       name: '*.wgpolicyk8s.io'
 
-    # Gateway API
+    # cert-manager CRDs
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: '*.cert-manager.io'
+
+    # Gateway API CRDs
     - group: apiextensions.k8s.io
       kind: CustomResourceDefinition
       name: '*.gateway.networking.k8s.io'
+
+    # Rook CRDs
+    # - group: apiextensions.k8s.io
+    #   kind: CustomResourceDefinition
+    #   name: '*.ceph.rook.io'
+
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: '*.ceph.io'
 
     # Only when using Rook ObjectBucket resources
     # - group: apiextensions.k8s.io
