@@ -1,3 +1,2 @@
 resources:
 - cluster-issuer-letsencrypt.yaml
-- network-policies/

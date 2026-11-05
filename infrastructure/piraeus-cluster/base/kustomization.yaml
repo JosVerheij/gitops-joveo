@@ -1,5 +1,0 @@
-resources:
-  - piraeus-linstor-cluster.yaml
-  - piraeus-storage-pool.yaml
-  - piraeus-storage.yaml
-

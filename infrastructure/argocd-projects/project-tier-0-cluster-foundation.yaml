@@ -13,8 +13,11 @@ spec:
     # - 'oci://ghcr.io/piraeusdatastore/piraeus-operator/piraeus'
 
   destinations:
-    - server: 'https://kubernetes.default.svc'
-      namespace: '*'
+    - server: https://kubernetes.default.svc
+      namespace: argocd
+
+    - server: https://kubernetes.default.svc
+      namespace: kyverno
 
   clusterResourceWhitelist:
     # Kubernetes API extensions
@@ -61,11 +64,14 @@ spec:
     - group: 'snapshot.storage.k8s.io'
       kind: '*'
 
-    # Piraeus / LINSTOR cluster resources
-    # - group: 'piraeus.io'
-    #   kind: '*'
-    # - group: 'linstor.linbit.com'
-    #   kind: '*'
+    # Only when using Rook ObjectBucket resources
+    # - group: apiextensions.k8s.io
+    #   kind: CustomResourceDefinition
+    #   name: '*.objectbucket.io'
+
+    # cert-manager
+    - group: cert-manager.io
+      kind: ClusterIssuer
 
     # Kyverno cluster-wide policies
     - group: policies.kyverno.io
@@ -102,15 +108,15 @@ spec:
       kind: CustomResourceDefinition
       name: '*.policies.kyverno.io'
 
-    # Retain these only if the corresponding Piraeus/LINSTOR
-    # CRDs are still managed by T0.
-    # - group: apiextensions.k8s.io
-    #   kind: CustomResourceDefinition
-    #   name: '*.piraeus.io'
+    # Kyverno
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: '*.kyverno.io'
 
-    # - group: apiextensions.k8s.io
-    #   kind: CustomResourceDefinition
-    #   name: '*.linstor.linbit.com'
+    # Gateway API
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: '*.gateway.networking.k8s.io'
 
     # Namespaces managed by T0.
     # Include all existing T0-owned namespaces.
@@ -137,3 +143,10 @@ spec:
     - group: ''
       kind: Namespace
       name: gateways
+
+    # Kyverno namespaced policies
+    - group: kyverno.io
+      kind: Policy
+
+    - group: kyverno.io
+      kind: PolicyException

@@ -49,7 +49,7 @@ volumeMounts:
 
 # Enable the default network policy for cert-manager controller
 networkPolicy:
-  enabled: true
+  enabled: false
   egress:
 
   # Required: Kubernetes API requests.
@@ -138,7 +138,7 @@ webhook:
 
   # Enable the default network policy for cert-manager webhook
   networkPolicy:
-    enabled: true
+    enabled: false
 
 cainjector:
   extraArgs:
@@ -177,7 +177,7 @@ cainjector:
 
   # Enable the default network policy for cert-manager cainjector
   networkPolicy:
-    enabled: true
+    enabled: false
 
 startupapicheck:
   automountServiceAccountToken: false

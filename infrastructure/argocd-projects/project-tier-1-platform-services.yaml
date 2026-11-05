@@ -21,38 +21,6 @@ spec:
       namespace: 'rook-ceph'
 
   clusterResourceWhitelist:
-    # cert-manager CRDs
-    - group: apiextensions.k8s.io
-      kind: CustomResourceDefinition
-      name: '*.cert-manager.io'
-
-    - group: apiextensions.k8s.io
-      kind: CustomResourceDefinition
-      name: '*.acme.cert-manager.io'
-
-    # Rook CRDs
-    - group: apiextensions.k8s.io
-      kind: CustomResourceDefinition
-      name: '*.ceph.rook.io'
-
-    # Only when using Rook ObjectBucket resources
-    - group: apiextensions.k8s.io
-      kind: CustomResourceDefinition
-      name: '*.objectbucket.io'
-
-    # Gateway API CRDs
-    - group: apiextensions.k8s.io
-      kind: CustomResourceDefinition
-      name: '*.gateway.networking.k8s.io'
-
-    # cert-manager
-    - group: cert-manager.io
-      kind: ClusterIssuer
-
-    # Gateway API
-    - group: gateway.networking.k8s.io
-      kind: GatewayClass
-
     # Rook / storage, if these are declared in Git
     - group: storage.k8s.io
       kind: StorageClass
@@ -64,6 +32,16 @@ spec:
       kind: VolumeSnapshotClass
 
   namespaceResourceWhitelist:
+    # cert-manager CRDs
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: '*.cert-manager.io'
+
+    # Rook CRDs
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: '*.ceph.rook.io'
+
     # Core resources
     - group: ''
       kind: ConfigMap
