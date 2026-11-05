@@ -46,7 +46,15 @@ spec:
 
     - group: rbac.authorization.k8s.io
       kind: ClusterRoleBinding
-      name: 'platform-cert-manager-chart-*'
+      name: 'rook-ceph-*'
+
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: 'ceph-csi*'
+
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRoleBinding
+      name: 'ceph-csi*'
 
     # cert-manager ClusterRole and ClusterRoleBinding
     - group: rbac.authorization.k8s.io
