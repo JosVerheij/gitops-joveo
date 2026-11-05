@@ -9,7 +9,8 @@ spec:
   sourceRepos:
     - 'https://github.com/JosVerheij/gitops-joveo.git'
     - 'oci://quay.io/cilium/charts/cilium'
-    - 'oci://ghcr.io/piraeusdatastore/piraeus-operator/piraeus'
+    - 'oci://ghcr.io/kyverno/charts/kyverno'
+    # - 'oci://ghcr.io/piraeusdatastore/piraeus-operator/piraeus'
 
   destinations:
     - server: 'https://kubernetes.default.svc'
@@ -47,8 +48,10 @@ spec:
       kind: 'ClusterRoleBinding'
 
     # Cilium cluster infrastructure
-    - group: 'cilium.io'
-      kind: '*'
+    # - group: 'cilium.io'
+    #   kind: '*'
+    - group: cilium.io
+      kind: CiliumClusterwideNetworkPolicy
 
     # Storage infrastructure
     - group: 'storage.k8s.io'
@@ -59,11 +62,78 @@ spec:
       kind: '*'
 
     # Piraeus / LINSTOR cluster resources
-    - group: 'piraeus.io'
-      kind: '*'
-    - group: 'linstor.linbit.com'
-      kind: '*'
+    # - group: 'piraeus.io'
+    #   kind: '*'
+    # - group: 'linstor.linbit.com'
+    #   kind: '*'
+
+    # Kyverno cluster-wide policies
+    - group: policies.kyverno.io
+      kind: ValidatingPolicy
+
+    - group: policies.kyverno.io
+      kind: ImageValidatingPolicy
+
+    # Add only when actually used:
+    # - group: policies.kyverno.io
+    #   kind: MutatingPolicy
+    # - group: policies.kyverno.io
+    #   kind: GeneratingPolicy
+    # - group: policies.kyverno.io
+    #   kind: DeletingPolicy
 
   namespaceResourceWhitelist:
-    - group: '*'
-      kind: '*'
+    # Argo CD CRDs
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: '*.argoproj.io'
+
+    # Cilium CRDs
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: '*.cilium.io'
+
+    # Kyverno CRDs
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: '*.kyverno.io'
+
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: '*.policies.kyverno.io'
+
+    # Retain these only if the corresponding Piraeus/LINSTOR
+    # CRDs are still managed by T0.
+    # - group: apiextensions.k8s.io
+    #   kind: CustomResourceDefinition
+    #   name: '*.piraeus.io'
+
+    # - group: apiextensions.k8s.io
+    #   kind: CustomResourceDefinition
+    #   name: '*.linstor.linbit.com'
+
+    # Namespaces managed by T0.
+    # Include all existing T0-owned namespaces.
+    - group: ''
+      kind: Namespace
+      name: argocd
+
+    - group: ''
+      kind: Namespace
+      name: kube-system
+
+    - group: ''
+      kind: Namespace
+      name: kyverno
+
+    - group: ''
+      kind: Namespace
+      name: cert-manager
+
+    - group: ''
+      kind: Namespace
+      name: rook-ceph
+
+    - group: ''
+      kind: Namespace
+      name: gateways

@@ -8,7 +8,6 @@ spec:
 
   sourceRepos:
     - 'https://github.com/JosVerheij/gitops-joveo.git'
-    - 'oci://ghcr.io/kyverno/charts/kyverno'
     - 'oci://quay.io/jetstack/charts/cert-manager'
     - 'oci://ghcr.io/rook/rook-ceph'
     - 'oci://ghcr.io/rook/rook-ceph-cluster'
@@ -17,50 +16,124 @@ spec:
     - server: 'https://kubernetes.default.svc'
       namespace: 'cert-manager'
     - server: 'https://kubernetes.default.svc'
-      namespace: 'kyverno'
-    - server: 'https://kubernetes.default.svc'
       namespace: 'gateways'
     - server: 'https://kubernetes.default.svc'
       namespace: 'rook-ceph'
 
   clusterResourceWhitelist:
-    # CRDs owned by platform operators
-    - group: 'apiextensions.k8s.io'
-      kind: 'CustomResourceDefinition'
+    # cert-manager CRDs
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: '*.cert-manager.io'
 
-    # Cluster namespaces
-    - group: ''
-      kind: 'Namespace'
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: '*.acme.cert-manager.io'
 
-    # Cluster RBAC
-    - group: 'rbac.authorization.k8s.io'
-      kind: 'ClusterRole'
-    - group: 'rbac.authorization.k8s.io'
-      kind: 'ClusterRoleBinding'
+    # Rook CRDs
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: '*.ceph.rook.io'
 
-    # Admission webhooks
-    - group: 'admissionregistration.k8s.io'
-      kind: 'MutatingWebhookConfiguration'
-    - group: 'admissionregistration.k8s.io'
-      kind: 'ValidatingWebhookConfiguration'
+    # Only when using Rook ObjectBucket resources
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: '*.objectbucket.io'
 
-    # cert-manager cluster-wide configuration
-    - group: 'cert-manager.io'
-      kind: 'ClusterIssuer'
+    # Gateway API CRDs
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: '*.gateway.networking.k8s.io'
 
-    # Kyverno cluster-wide policies
-    - group: policies.kyverno.io
-      kind: ValidatingPolicy
-    # - group: policies.kyverno.io
-    #   kind: MutatingPolicy
-    # - group: policies.kyverno.io
-    #   kind: GeneratingPolicy
-    # - group: policies.kyverno.io
-    #   kind: DeletingPolicy
-    - group: policies.kyverno.io
-      kind: ImageValidatingPolicy
+    # cert-manager
+    - group: cert-manager.io
+      kind: ClusterIssuer
 
+    # Gateway API
+    - group: gateway.networking.k8s.io
+      kind: GatewayClass
+
+    # Rook / storage, if these are declared in Git
+    - group: storage.k8s.io
+      kind: StorageClass
+
+    - group: storage.k8s.io
+      kind: CSIDriver
+
+    - group: snapshot.storage.k8s.io
+      kind: VolumeSnapshotClass
 
   namespaceResourceWhitelist:
-    - group: '*'
-      kind: '*'
+    # Core resources
+    - group: ''
+      kind: ConfigMap
+
+    - group: ''
+      kind: Secret
+
+    - group: ''
+      kind: Service
+
+    - group: ''
+      kind: ServiceAccount
+
+    # Workloads
+    - group: apps
+      kind: Deployment
+
+    - group: apps
+      kind: StatefulSet
+
+    - group: apps
+      kind: DaemonSet
+
+    # Helm hooks / installation jobs
+    - group: batch
+      kind: Job
+
+    # Controller coordination
+    - group: coordination.k8s.io
+      kind: Lease
+
+    # Availability
+    - group: policy
+      kind: PodDisruptionBudget
+
+    # cert-manager
+    - group: cert-manager.io
+      kind: Certificate
+
+    - group: cert-manager.io
+      kind: CertificateRequest
+
+    - group: cert-manager.io
+      kind: Issuer
+
+    - group: acme.cert-manager.io
+      kind: Order
+
+    - group: acme.cert-manager.io
+      kind: Challenge
+
+    # Rook-Ceph
+    - group: ceph.rook.io
+      kind: CephCluster
+
+    - group: ceph.rook.io
+      kind: CephBlockPool
+
+    - group: ceph.rook.io
+      kind: CephFilesystem
+
+    - group: ceph.rook.io
+      kind: CephObjectStore
+
+    - group: ceph.rook.io
+      kind: CephObjectStoreUser
+
+    - group: ceph.rook.io
+      kind: CephNFS
+
+    # Gateway API
+    - group: gateway.networking.k8s.io
+      kind: Gateway

@@ -1,0 +1,4 @@
+resources:
+- namespace-cert-manager.yaml
+- namespace-rook-ceph.yaml
+- namespace-gateways.yaml
