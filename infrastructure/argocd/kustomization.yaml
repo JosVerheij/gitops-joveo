@@ -4,9 +4,10 @@ kind: Kustomization
 namespace: argocd
 
 resources:
-  - base/
+  # - base/
 
-  - https://raw.githubusercontent.com/argoproj/argo-cd/6eaf7d1f64b6b7e165e6e8ed74aa25259b75e978/manifests/install.yaml
+  - https://raw.githubusercontent.com/argoproj/argo-cd/v3.6.1/manifests/install.yaml
+  # - https://raw.githubusercontent.com/argoproj/argo-cd/6eaf7d1f64b6b7e165e6e8ed74aa25259b75e978/manifests/install.yaml
 
 patches:
   - path: overlays/argocd-cmd-params-cm-patch.yaml

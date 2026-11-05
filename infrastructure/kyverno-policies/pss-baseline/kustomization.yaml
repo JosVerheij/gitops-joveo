@@ -1,11 +1,5 @@
 resources:
-    # Pod Security Standards (Restricted)
-  - require-run-as-nonroot.yaml
-  - require-run-as-non-root-user.yaml
-  - restrict-seccomp-strict.yaml
-  - disallow-capabilities-strict.yaml
-  - disallow-privilege-escalation.yaml
-  - restrict-volume-types.yaml
+
   # Pod Security Standards (Baseline)
   - restrict-sysctls.yaml
   - disallow-selinux.yaml
@@ -15,6 +9,5 @@ resources:
   - disallow-host-path.yaml
   - disallow-host-namespaces.yaml
   # other
-  - restrict-sa-automount-sa-token.yaml
 
 
