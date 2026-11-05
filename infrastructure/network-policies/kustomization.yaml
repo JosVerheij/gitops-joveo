@@ -1,3 +1,5 @@
+namespace: policies
+
 resources:
 - default-deny.yaml
 
