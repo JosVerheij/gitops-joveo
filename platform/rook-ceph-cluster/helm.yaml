@@ -1,6 +1,6 @@
 appname: rook-ceph-cluster
 namespace: rook-ceph
 source:
-  repoURL: ghcr.io/rook/rook-ceph-cluster
+  repoURL: oci://ghcr.io/rook/rook-ceph-cluster
   targetRevision: sha256:2e65e2fa65fcae9ec4104e8474c5c6a805bc040531bb5dda6ba525ef42383076
 

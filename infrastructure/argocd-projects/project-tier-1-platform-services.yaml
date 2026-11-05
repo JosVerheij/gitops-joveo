@@ -7,10 +7,10 @@ spec:
   description: "Tier 1: Platform operators, security services and cluster controllers"
 
   sourceRepos:
-    - 'https://github.com/JosVerheij/gitops-joveo.git'
-    - 'oci://quay.io/jetstack/charts/cert-manager'
-    - 'oci://ghcr.io/rook/rook-ceph'
-    - 'oci://ghcr.io/rook/rook-ceph-cluster'
+    - 'github.com/JosVerheij/gitops-joveo.git'
+    - 'quay.io/jetstack/charts/cert-manager'
+    - 'ghcr.io/rook/rook-ceph'
+    - 'ghcr.io/rook/rook-ceph-cluster'
 
   destinations:
     - server: 'https://kubernetes.default.svc'
