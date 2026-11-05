@@ -1,3 +1,5 @@
+namespace: argocd
+
 resources:
 - project-tier-0-cluster-foundation.yaml
 - project-tier-1-platform-services.yaml
