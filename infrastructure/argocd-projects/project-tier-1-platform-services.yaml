@@ -10,14 +10,18 @@ spec:
     - 'https://github.com/JosVerheij/gitops-joveo.git'
     - 'oci://ghcr.io/kyverno/charts/kyverno'
     - 'oci://quay.io/jetstack/charts/cert-manager'
+    - 'oci://ghcr.io/rook/rook-ceph'
+    - 'oci://ghcr.io/rook/rook-ceph-cluster'
 
   destinations:
     - server: 'https://kubernetes.default.svc'
       namespace: 'cert-manager'
     - server: 'https://kubernetes.default.svc'
       namespace: 'kyverno'
-    - server: https://kubernetes.default.svc
+    - server: 'https://kubernetes.default.svc'
       namespace: 'gateways'
+    - server: 'https://kubernetes.default.svc'
+      namespace: 'rook-ceph'
 
   clusterResourceWhitelist:
     # CRDs owned by platform operators
