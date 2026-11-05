@@ -49,6 +49,15 @@ spec:
       kind: MutatingWebhookConfiguration
       name: 'platform-cert-manager-chart-webhook'
 
+    # cert-manager ClusterRole and ClusterRoleBinding
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRole
+      name: 'platform-cert-manager-chart-*'
+
+    - group: rbac.authorization.k8s.io
+      kind: ClusterRoleBinding
+      name: 'platform-cert-manager-chart-*'
+
   namespaceResourceWhitelist:
     # Kubernetes core resources
     - group: ''
