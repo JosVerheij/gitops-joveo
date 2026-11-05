@@ -1,6 +1,6 @@
 # https://github.com/rook/rook/blob/release-1.21/deploy/charts/rook-ceph/values.yaml
 crds:
-  enabled: false
+  enabled: true
 
 # -- Kubernetes [`nodeSelector`](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector) to add to the Deployment.
 nodeSelector: {}
@@ -67,7 +67,7 @@ ceph-csi-operator:
         csiServiceAccountPrefix: ""
 csi:
   # -- When true, install the ceph-csi-operator subchart (see Chart.yaml `condition`).
-  installCsiOperator: false
+  installCsiOperator: true
 
   # CSI container images are managed by the ceph-csi-operator. Empty defaults
   # allow the operator to use its built-in images. Set the repository and tag

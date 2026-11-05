@@ -9,7 +9,6 @@ spec:
   sourceRepos:
     - 'https://github.com/JosVerheij/gitops-joveo.git'
     - 'oci://quay.io/jetstack/charts/cert-manager'
-    - 'oci://ghcr.io/rook/rook-ceph'
     - 'oci://ghcr.io/rook/rook-ceph-cluster'
 
   destinations:
@@ -38,15 +37,6 @@ spec:
     - group: admissionregistration.k8s.io
       kind: MutatingWebhookConfiguration
       name: 'platform-cert-manager-chart-webhook'
-
-    # rook-ceph ClusterRole and ClusterRoleBinding
-    - group: rbac.authorization.k8s.io
-      kind: ClusterRoleBinding
-      name: 'rook-ceph-osd'
-
-    - group: rbac.authorization.k8s.io
-      kind: ClusterRoleBinding
-      name: 'rook-ceph-mgr-cluster'
 
     # cert-manager ClusterRole and ClusterRoleBinding
     - group: rbac.authorization.k8s.io
