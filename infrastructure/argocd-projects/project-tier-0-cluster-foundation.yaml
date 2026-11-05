@@ -25,7 +25,7 @@ spec:
       namespace: cert-manager
     # TBD
     - server: https://kubernetes.default.svc
-      namespace: gateways
+      namespace: gateway-api
 
   clusterResourceWhitelist:
     # Kubernetes API extensions
