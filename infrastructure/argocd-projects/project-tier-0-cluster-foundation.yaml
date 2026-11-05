@@ -119,5 +119,5 @@ spec:
       kind: ClusterIssuer
 
   namespaceResourceWhitelist:
-    - group: ''
+    - group: '*'
       kind: '*'
