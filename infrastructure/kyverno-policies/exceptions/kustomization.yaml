@@ -1,0 +1,2 @@
+resources:
+- rook-ceph-exclude-disallow-privilege-escalation.yaml
