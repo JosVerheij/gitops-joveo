@@ -21,10 +21,13 @@ spec:
       namespace: argocd
     - server: https://kubernetes.default.svc
       namespace: kyverno
+
     - server: https://kubernetes.default.svc
       namespace: cert-manager
     - server: https://kubernetes.default.svc
-      namespace: policies
+      namespace: gateways
+    - server: https://kubernetes.default.svc
+      namespace: rook-ceph
 
   clusterResourceWhitelist:
     # Kubernetes API extensions
