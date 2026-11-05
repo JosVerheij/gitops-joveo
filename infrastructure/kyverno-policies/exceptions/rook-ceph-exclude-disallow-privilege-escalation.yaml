@@ -7,6 +7,6 @@ spec:
     - name: disallow-privilege-escalation
       kind: ValidatingPolicy
   matchConditions:
-    - name: skip-by-piraeus-namespace
+    - name: skip-by-rook-ceph-namespace
       expression: >-
-        object.metadata.namespace == 'piraeus'
+        object.metadata.namespace == 'rook-ceph'
