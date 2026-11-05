@@ -37,9 +37,13 @@ spec:
       name: '*.cert-manager.io'
 
     # Rook CRDs
+    # - group: apiextensions.k8s.io
+    #   kind: CustomResourceDefinition
+    #   name: '*.ceph.rook.io'
+
     - group: apiextensions.k8s.io
       kind: CustomResourceDefinition
-      name: '*.ceph.rook.io'
+      name: '*.ceph.io'
 
     # cert-manager CA Injector
     - group: admissionregistration.k8s.io
