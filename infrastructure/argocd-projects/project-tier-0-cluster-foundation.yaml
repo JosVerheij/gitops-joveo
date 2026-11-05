@@ -69,10 +69,10 @@ spec:
       kind: CustomResourceDefinition
       name: '*.gateway.networking.k8s.io'
 
-    # Rook CRDs
-    # - group: apiextensions.k8s.io
-    #   kind: CustomResourceDefinition
-    #   name: '*.ceph.rook.io'
+    # Rook-Ceph CRDs
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: '*.ceph.rook.io'
 
     - group: apiextensions.k8s.io
       kind: CustomResourceDefinition
