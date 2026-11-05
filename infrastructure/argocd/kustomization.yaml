@@ -15,5 +15,5 @@ patches:
   - path: overlays/argocd-cm-patch.yaml
 
 images:
-  - name: quay.io/argoproj/argocd
+  - name: quay.io/argoproj/argocd:v3.6.1
     digest: sha256:296e3d74f449b2ce45265613fcb68c18ed7366488360c8ea32f5f2a93d2e5c54
