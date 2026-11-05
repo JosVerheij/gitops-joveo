@@ -9,6 +9,7 @@ spec:
   sourceRepos:
     - 'https://github.com/JosVerheij/gitops-joveo.git'
     - 'oci://quay.io/jetstack/charts/cert-manager'
+    - 'oci://ghcr.io/rook/rook-ceph'
     - 'oci://ghcr.io/rook/rook-ceph-cluster'
 
   destinations:

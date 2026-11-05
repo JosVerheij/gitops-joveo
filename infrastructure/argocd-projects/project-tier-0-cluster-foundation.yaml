@@ -10,7 +10,6 @@ spec:
     - 'https://github.com/JosVerheij/gitops-joveo.git'
     - 'oci://quay.io/cilium/charts/cilium'
     - 'oci://ghcr.io/kyverno/charts/kyverno'
-    - 'oci://ghcr.io/rook/rook-ceph'
 
   destinations:
     - server: https://kubernetes.default.svc
