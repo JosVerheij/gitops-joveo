@@ -23,6 +23,11 @@ spec:
       namespace: kyverno
 
     - server: https://kubernetes.default.svc
+      namespace: network-policies
+    - server: https://kubernetes.default.svc
+      namespace: platform-namespaces
+
+    - server: https://kubernetes.default.svc
       namespace: cert-manager
     - server: https://kubernetes.default.svc
       namespace: gateways
