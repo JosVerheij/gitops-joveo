@@ -16,4 +16,4 @@ patches:
 
 images:
   - name: quay.io/argoproj/argocd
-    digest: sha256:97c99bcbae3bcdd38d47d41e468a95a7735b23bdd2508c24f7bbf6e9a6ca8bee
+    digest: sha256:296e3d74f449b2ce45265613fcb68c18ed7366488360c8ea32f5f2a93d2e5c54
