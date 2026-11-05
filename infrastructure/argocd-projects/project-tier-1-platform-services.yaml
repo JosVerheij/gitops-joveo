@@ -41,13 +41,136 @@ spec:
       kind: CustomResourceDefinition
       name: '*.ceph.rook.io'
 
-  namespaceResourceBlacklist:
+  namespaceResourceWhitelist:
+    # Kubernetes core resources
     - group: ''
-      kind: 'Namespace'
+      kind: ConfigMap
 
-    # Networking is exclusively managed by T0
-    - group: networking.k8s.io
-      kind: NetworkPolicy
+    - group: ''
+      kind: Secret
 
-    - group: cilium.io
-      kind: CiliumNetworkPolicy
+    - group: ''
+      kind: Service
+
+    - group: ''
+      kind: ServiceAccount
+
+    - group: ''
+      kind: Endpoints
+
+    - group: ''
+      kind: Pod
+
+    - group: ''
+      kind: PersistentVolumeClaim
+
+    # Kubernetes workloads
+    - group: apps
+      kind: Deployment
+
+    - group: apps
+      kind: StatefulSet
+
+    - group: apps
+      kind: DaemonSet
+
+    - group: apps
+      kind: ReplicaSet
+
+    # Kubernetes batch workloads
+    - group: batch
+      kind: Job
+
+    - group: batch
+      kind: CronJob
+
+    # Kubernetes RBAC (namespaced)
+    - group: rbac.authorization.k8s.io
+      kind: Role
+
+    - group: rbac.authorization.k8s.io
+      kind: RoleBinding
+
+    # Kubernetes coordination and availability
+    - group: coordination.k8s.io
+      kind: Lease
+
+    - group: policy
+      kind: PodDisruptionBudget
+
+    # Kubernetes service discovery
+    - group: discovery.k8s.io
+      kind: EndpointSlice
+
+    # cert-manager
+    - group: cert-manager.io
+      kind: Certificate
+
+    - group: cert-manager.io
+      kind: CertificateRequest
+
+    - group: cert-manager.io
+      kind: Issuer
+
+    - group: acme.cert-manager.io
+      kind: Order
+
+    - group: acme.cert-manager.io
+      kind: Challenge
+
+    # Rook-Ceph
+    - group: ceph.rook.io
+      kind: CephCluster
+
+    - group: ceph.rook.io
+      kind: CephBlockPool
+
+    - group: ceph.rook.io
+      kind: CephFilesystem
+
+    - group: ceph.rook.io
+      kind: CephFilesystemMirror
+
+    - group: ceph.rook.io
+      kind: CephFilesystemSubVolumeGroup
+
+    - group: ceph.rook.io
+      kind: CephObjectStore
+
+    - group: ceph.rook.io
+      kind: CephObjectStoreUser
+
+    - group: ceph.rook.io
+      kind: CephObjectRealm
+
+    - group: ceph.rook.io
+      kind: CephObjectZone
+
+    - group: ceph.rook.io
+      kind: CephObjectZoneGroup
+
+    - group: ceph.rook.io
+      kind: CephNFS
+
+    - group: ceph.rook.io
+      kind: CephClient
+
+    - group: ceph.rook.io
+      kind: CephRBDMirror
+
+    - group: ceph.rook.io
+      kind: CephBucketNotification
+
+    - group: ceph.rook.io
+      kind: CephBucketTopic
+
+    - group: ceph.rook.io
+      kind: CephCOSIDriver
+
+    # Legacy Rook object bucket provisioning, if used
+    # - group: objectbucket.io
+    #   kind: ObjectBucketClaim
+
+    # Gateway API
+    - group: gateway.networking.k8s.io
+      kind: Gateway

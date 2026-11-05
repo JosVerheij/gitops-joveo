@@ -22,8 +22,42 @@ spec:
 
   clusterResourceWhitelist:
     # Kubernetes API extensions
-    - group: 'apiextensions.k8s.io'
-      kind: 'CustomResourceDefinition'
+    # - group: 'apiextensions.k8s.io'
+    #   kind: 'CustomResourceDefinition'
+
+    # Argo CD CRDs
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: '*.argoproj.io'
+
+    # Cilium CRDs
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: '*.cilium.io'
+
+    # Kyverno CRDs
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: '*.kyverno.io'
+
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: '*.policies.kyverno.io'
+
+    # Kyverno
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: '*.kyverno.io'
+
+    # Gateway API
+    - group: apiextensions.k8s.io
+      kind: CustomResourceDefinition
+      name: '*.gateway.networking.k8s.io'
+
+    # Only when using Rook ObjectBucket resources
+    # - group: apiextensions.k8s.io
+    #   kind: CustomResourceDefinition
+    #   name: '*.objectbucket.io'
 
     # Cluster GatewayClass
     - group: gateway.networking.k8s.io
@@ -83,40 +117,6 @@ spec:
     # cert-manager Cluster Issuer
     - group: cert-manager.io
       kind: ClusterIssuer
-
-    # Argo CD CRDs
-    - group: apiextensions.k8s.io
-      kind: CustomResourceDefinition
-      name: '*.argoproj.io'
-
-    # Cilium CRDs
-    - group: apiextensions.k8s.io
-      kind: CustomResourceDefinition
-      name: '*.cilium.io'
-
-    # Kyverno CRDs
-    - group: apiextensions.k8s.io
-      kind: CustomResourceDefinition
-      name: '*.kyverno.io'
-
-    - group: apiextensions.k8s.io
-      kind: CustomResourceDefinition
-      name: '*.policies.kyverno.io'
-
-    # Kyverno
-    - group: apiextensions.k8s.io
-      kind: CustomResourceDefinition
-      name: '*.kyverno.io'
-
-    # Gateway API
-    - group: apiextensions.k8s.io
-      kind: CustomResourceDefinition
-      name: '*.gateway.networking.k8s.io'
-
-    # Only when using Rook ObjectBucket resources
-    # - group: apiextensions.k8s.io
-    #   kind: CustomResourceDefinition
-    #   name: '*.objectbucket.io'
 
   namespaceResourceWhitelist:
     - group: ''
