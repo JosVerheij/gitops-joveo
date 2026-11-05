@@ -1,2 +1,4 @@
 resources:
+- network-policies/
+
 - https://raw.githubusercontent.com/argoproj/argo-cd/v3.6.1/manifests/install.yaml

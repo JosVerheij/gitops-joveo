@@ -10,7 +10,7 @@ spec:
     - 'https://github.com/JosVerheij/gitops-joveo.git'
     - 'oci://quay.io/cilium/charts/cilium'
     - 'oci://ghcr.io/kyverno/charts/kyverno'
-    # - 'oci://ghcr.io/piraeusdatastore/piraeus-operator/piraeus'
+    - 'oci://ghcr.io/rook/rook-ceph'
 
   destinations:
     - server: https://kubernetes.default.svc
@@ -23,12 +23,7 @@ spec:
       namespace: kyverno
 
     - server: https://kubernetes.default.svc
-      namespace: network-policies
-    - server: https://kubernetes.default.svc
-      namespace: platform-namespaces
-    - server: https://kubernetes.default.svc
       namespace: cluster-issuer
-
     - server: https://kubernetes.default.svc
       namespace: cert-manager
     - server: https://kubernetes.default.svc

@@ -1,5 +1,4 @@
+namespace: kube-system
+
 resources:
 - default-deny.yaml
-
-- argocd/
-- cert-manager/

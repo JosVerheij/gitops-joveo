@@ -1,6 +1,6 @@
 # https://github.com/rook/rook/blob/release-1.21/deploy/charts/rook-ceph/values.yaml
 crds:
-  enabled: false
+  enabled: true
 
 # -- Kubernetes [`nodeSelector`](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector) to add to the Deployment.
 nodeSelector: {}

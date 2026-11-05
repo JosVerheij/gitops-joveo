@@ -2,6 +2,7 @@ namespace: kyverno
 
 resources:
 - restrict-sa-automount-sa-token.yaml
+- application-prevent-default-project.yaml
 
 - exceptions/piraeus-exclude-disallow-privilege-escalation.yaml
 

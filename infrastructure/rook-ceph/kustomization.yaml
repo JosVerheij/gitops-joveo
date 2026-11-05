@@ -1,4 +1,0 @@
-resources:
-- namespace-rook-ceph.yaml
-
-- https://github.com/rook/rook/blob/release-1.21/deploy/examples/crds.yaml
