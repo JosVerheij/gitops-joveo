@@ -41,6 +41,14 @@ spec:
       kind: CustomResourceDefinition
       name: '*.ceph.rook.io'
 
+    # cert-manager CA Injector
+    - group: admissionregistration.k8s.io
+      kind: ValidatingWebhookConfiguration
+      name: '*.cert-manager.io'
+    - group: admissionregistration.k8s.io
+      kind: MutatingWebhookConfiguration
+      name: '*.cert-manager.io'
+
   namespaceResourceWhitelist:
     # Kubernetes core resources
     - group: ''
