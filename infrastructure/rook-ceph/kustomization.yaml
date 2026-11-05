@@ -1,0 +1,5 @@
+resources:
+# - https://github.com/rook/rook/blob/release-1.21/deploy/examples/crds.yaml
+# - https://github.com/rook/rook/blob/release-1.21/deploy/examples/common.yaml
+- rook-ceph-crds.yaml
+- rook-ceph-common.yaml
