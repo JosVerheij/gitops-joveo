@@ -53,10 +53,9 @@ spec:
       kind: CustomResourceDefinition
       name: '*.policies.kyverno.io'
 
-    # Kyverno
     - group: apiextensions.k8s.io
       kind: CustomResourceDefinition
-      name: '*.kyverno.io'
+      name: '*.wgpolicyk8s.io'
 
     # Gateway API
     - group: apiextensions.k8s.io
