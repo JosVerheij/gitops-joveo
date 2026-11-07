@@ -12,6 +12,8 @@ spec:
       kind: ValidatingPolicy
     - name: disallow-host-path
       kind: ValidatingPolicy
+    - name: restrict-volume-types
+      kind: ValidatingPolicy
   matchConditions:
     - name: skip-by-rook-ceph-namespace
       expression: >-
