@@ -10,6 +10,8 @@ spec:
       kind: ValidatingPolicy
     - name: disallow-capabilities-strict
       kind: ValidatingPolicy
+    - name: disallow-host-path
+      kind: ValidatingPolicy
   matchConditions:
     - name: skip-by-rook-ceph-namespace
       expression: >-
