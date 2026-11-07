@@ -1,10 +1,12 @@
 apiVersion: policies.kyverno.io/v1alpha1
 kind: PolicyException
 metadata:
-  name: exclude-disallow-privilege-escalation
+  name: exclude-rook-ceph-namespace
 spec:
   policyRefs:
     - name: disallow-privilege-escalation
+      kind: ValidatingPolicy
+    - name: require-run-as-nonroot
       kind: ValidatingPolicy
   matchConditions:
     - name: skip-by-rook-ceph-namespace
