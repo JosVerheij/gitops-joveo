@@ -8,6 +8,8 @@ spec:
       kind: ValidatingPolicy
     - name: require-run-as-nonroot
       kind: ValidatingPolicy
+    - name: disallow-capabilities-strict
+      kind: ValidatingPolicy
   matchConditions:
     - name: skip-by-rook-ceph-namespace
       expression: >-
