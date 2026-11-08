@@ -1,3 +1,5 @@
+namespace: piraeus-datastore
+
 resources:
 - base/
 
