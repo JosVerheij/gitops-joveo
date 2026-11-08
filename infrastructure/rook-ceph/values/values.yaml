@@ -43,7 +43,7 @@ priorityClassName:
 
 # -- Set the container security context for the operator
 containerSecurityContext:
-  allowPrivilegeEscalation: false  # TBD
+  # allowPrivilegeEscalation: false  # TBD
   runAsNonRoot: true
   runAsUser: 2016
   runAsGroup: 2016
