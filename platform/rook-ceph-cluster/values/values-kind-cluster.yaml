@@ -1,41 +1,42 @@
-resources:
-  mon:
-    requests:
-      cpu: 100m
-      memory: 512Mi
-    limits:
-      memory: 1Gi
+cephClusterSpec:
+  resources:
+    mon:
+      requests:
+        cpu: 100m
+        memory: 512Mi
+      limits:
+        memory: 1Gi
 
-  mgr:
-    requests:
-      cpu: 100m
-      memory: 256Mi
-    limits:
-      memory: 512Mi
+    mgr:
+      requests:
+        cpu: 100m
+        memory: 256Mi
+      limits:
+        memory: 512Mi
 
-  osd:
-    requests:
-      cpu: 250m
-      memory: 2Gi
-    limits:
-      memory: 3Gi
+    osd:
+      requests:
+        cpu: 250m
+        memory: 2Gi
+      limits:
+        memory: 3Gi
 
-  mgr-sidecar:
-    requests:
-      cpu: 50m
-      memory: 40Mi
+    mgr-sidecar:
+      requests:
+        cpu: 50m
+        memory: 40Mi
 
-  crashcollector:
-    requests:
-      cpu: 25m
-      memory: 60Mi
+    crashcollector:
+      requests:
+        cpu: 25m
+        memory: 60Mi
 
-  logcollector:
-    requests:
-      cpu: 25m
-      memory: 100Mi
+    logcollector:
+      requests:
+        cpu: 25m
+        memory: 100Mi
 
-  exporter:
-    requests:
-      cpu: 25m
-      memory: 50Mi
+    exporter:
+      requests:
+        cpu: 25m
+        memory: 50Mi
