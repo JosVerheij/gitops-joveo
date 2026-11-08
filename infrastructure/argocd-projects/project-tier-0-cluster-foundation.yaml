@@ -74,7 +74,7 @@ spec:
     # Piraeus CRDs
     - group: apiextensions.k8s.io
       kind: CustomResourceDefinition
-      name: '*.linstorclusters.piraeus.io'
+      name: '*.piraeus.io'
 
     # Rook-Ceph CRDs
     - group: apiextensions.k8s.io
