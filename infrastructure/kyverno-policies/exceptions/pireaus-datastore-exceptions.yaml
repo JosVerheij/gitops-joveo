@@ -1,0 +1,22 @@
+apiVersion: policies.kyverno.io/v1alpha1
+kind: PolicyException
+metadata:
+  name: exclude-piraeus-datastore-namespace
+spec:
+  policyRefs:
+    # - name: disallow-privilege-escalation
+    #   kind: ValidatingPolicy
+    # - name: require-run-as-nonroot
+    #   kind: ValidatingPolicy
+    # - name: require-run-as-non-root-user
+    #   kind: ValidatingPolicy
+    - name: disallow-capabilities-strict
+      kind: ValidatingPolicy
+    # - name: disallow-host-path
+    #   kind: ValidatingPolicy
+    # - name: restrict-volume-types
+    #   kind: ValidatingPolicy
+  matchConditions:
+    - name: skip-by-piraeus-datastore-namespace
+      expression: >-
+        object.metadata.namespace == 'piraeus-datastore'
