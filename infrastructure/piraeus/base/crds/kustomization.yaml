@@ -1,0 +1,5 @@
+resources:
+- crd-linstorcluster.yaml
+- crd-linstorsatelliteconfiguration.yaml
+- crd-linstornodeconnection.yaml
+- crd-linstorsatellite.yaml

@@ -18,6 +18,8 @@ spec:
       namespace: 'gateway-api'
     - server: 'https://kubernetes.default.svc'
       namespace: 'rook-ceph'
+    - server: https://kubernetes.default.svc
+      namespace: piraeus-datastore
 
   clusterResourceWhitelist:
     # Rook / storage, if these are declared in Git

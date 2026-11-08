@@ -1,0 +1,3 @@
+resources:
+- piraeus-operator-controller-manager.yaml
+- piraeus-operator-gencert.yaml

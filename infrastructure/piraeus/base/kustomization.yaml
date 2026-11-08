@@ -1,0 +1,7 @@
+resources:
+- crds/
+
+- namespace.yaml
+
+- cluster-role-bindings.yaml
+- cluster-roles/
