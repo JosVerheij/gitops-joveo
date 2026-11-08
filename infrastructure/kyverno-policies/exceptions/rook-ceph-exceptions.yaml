@@ -8,6 +8,8 @@ spec:
       kind: ValidatingPolicy
     - name: require-run-as-nonroot
       kind: ValidatingPolicy
+    - name: require-run-as-non-root-user
+      kind: ValidatingPolicy
     - name: disallow-capabilities-strict
       kind: ValidatingPolicy
     - name: disallow-host-path
