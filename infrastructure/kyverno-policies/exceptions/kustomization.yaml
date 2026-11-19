@@ -1,3 +1,3 @@
-resources:
+resources: []
 # - rook-ceph-exceptions.yaml
-- pireaus-datastore-exceptions.yaml
+# - pireaus-datastore-exceptions.yaml
