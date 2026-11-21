@@ -1,0 +1,39 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: piraeus-operator-controller-manager
+  namespace: piraeus-datastore
+spec:
+  template:
+    spec:
+      containers:
+      - name: manager
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: piraeus-operator-gencert
+  namespace: piraeus-datastore
+spec:
+  template:
+    spec:
+      containers:
+      - name: gencert
+        securityContext:
+          allowPrivilegeEscalation: false
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          seccompProfile:
+            type: RuntimeDefault
+          capabilities:
+            drop: ["ALL"]
