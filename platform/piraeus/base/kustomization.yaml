@@ -1,0 +1,2 @@
+patches:
+- path: set-security-context.yaml
