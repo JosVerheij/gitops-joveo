@@ -126,54 +126,58 @@ spec:
     - group: acme.cert-manager.io
       kind: Challenge
 
+    # Piraeus Datastore
+    - group: piraeus.io
+      kind: LinstorCluster
+
     # Rook-Ceph
-    - group: ceph.rook.io
-      kind: CephCluster
+    # - group: ceph.rook.io
+    #   kind: CephCluster
 
-    - group: ceph.rook.io
-      kind: CephBlockPool
+    # - group: ceph.rook.io
+    #   kind: CephBlockPool
 
-    - group: ceph.rook.io
-      kind: CephFilesystem
+    # - group: ceph.rook.io
+    #   kind: CephFilesystem
 
-    - group: ceph.rook.io
-      kind: CephFilesystemMirror
+    # - group: ceph.rook.io
+    #   kind: CephFilesystemMirror
 
-    - group: ceph.rook.io
-      kind: CephFilesystemSubVolumeGroup
+    # - group: ceph.rook.io
+    #   kind: CephFilesystemSubVolumeGroup
 
-    - group: ceph.rook.io
-      kind: CephObjectStore
+    # - group: ceph.rook.io
+    #   kind: CephObjectStore
 
-    - group: ceph.rook.io
-      kind: CephObjectStoreUser
+    # - group: ceph.rook.io
+    #   kind: CephObjectStoreUser
 
-    - group: ceph.rook.io
-      kind: CephObjectRealm
+    # - group: ceph.rook.io
+    #   kind: CephObjectRealm
 
-    - group: ceph.rook.io
-      kind: CephObjectZone
+    # - group: ceph.rook.io
+    #   kind: CephObjectZone
 
-    - group: ceph.rook.io
-      kind: CephObjectZoneGroup
+    # - group: ceph.rook.io
+    #   kind: CephObjectZoneGroup
 
-    - group: ceph.rook.io
-      kind: CephNFS
+    # - group: ceph.rook.io
+    #   kind: CephNFS
 
-    - group: ceph.rook.io
-      kind: CephClient
+    # - group: ceph.rook.io
+    #   kind: CephClient
 
-    - group: ceph.rook.io
-      kind: CephRBDMirror
+    # - group: ceph.rook.io
+    #   kind: CephRBDMirror
 
-    - group: ceph.rook.io
-      kind: CephBucketNotification
+    # - group: ceph.rook.io
+    #   kind: CephBucketNotification
 
-    - group: ceph.rook.io
-      kind: CephBucketTopic
+    # - group: ceph.rook.io
+    #   kind: CephBucketTopic
 
-    - group: ceph.rook.io
-      kind: CephCOSIDriver
+    # - group: ceph.rook.io
+    #   kind: CephCOSIDriver
 
     # Legacy Rook object bucket provisioning, if used
     # - group: objectbucket.io
