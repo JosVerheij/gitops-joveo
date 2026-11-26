@@ -1,2 +1,3 @@
 resources:
 - linstor-cluster.yaml
+- linstor-sattelite-configuration.yaml
