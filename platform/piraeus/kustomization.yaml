@@ -2,8 +2,5 @@ namespace: piraeus-datastore
 
 
 resources:
-# https://github.com/piraeusdatastore/piraeus-operator/releases/download/v2.12.1/manifest.yaml
-- release-manifest-v2.12.1-modified.yaml
-
-patches:
-- path: patches/set-security-context.yaml
+- base/
+- release/
