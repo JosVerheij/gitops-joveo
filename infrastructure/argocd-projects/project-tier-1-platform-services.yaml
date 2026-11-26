@@ -23,14 +23,21 @@ spec:
 
   clusterResourceWhitelist:
     # Rook / storage, if these are declared in Git
-    - group: storage.k8s.io
-      kind: StorageClass
+    # - group: storage.k8s.io
+    #   kind: StorageClass
 
-    - group: storage.k8s.io
-      kind: CSIDriver
+    # - group: storage.k8s.io
+    #   kind: CSIDriver
 
-    - group: snapshot.storage.k8s.io
-      kind: VolumeSnapshotClass
+    # - group: snapshot.storage.k8s.io
+    #   kind: VolumeSnapshotClass
+
+    # Piraeus Datastore
+    - group: piraeus.io
+      kind: LinstorCluster
+
+    - group: piraeus.io
+      kind: LinstorSatelliteConfiguration
 
     # cert-manager CA Injector
     - group: admissionregistration.k8s.io
@@ -125,10 +132,6 @@ spec:
 
     - group: acme.cert-manager.io
       kind: Challenge
-
-    # Piraeus Datastore
-    - group: piraeus.io
-      kind: LinstorCluster
 
     # Rook-Ceph
     # - group: ceph.rook.io
